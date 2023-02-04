@@ -5,6 +5,17 @@
     <link>https://rrgaya.github.io/</link>
     <description>Recent content on Gaya Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>pt-br</language><atom:link href="https://rrgaya.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>pt-br</language>
+    <lastBuildDate>Sat, 04 Feb 2023 13:14:08 -0300</lastBuildDate><atom:link href="https://rrgaya.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Init</title>
+      <link>https://rrgaya.github.io/posts/init/</link>
+      <pubDate>Sat, 04 Feb 2023 13:14:08 -0300</pubDate>
+      
+      <guid>https://rrgaya.github.io/posts/init/</guid>
+      <description>Voltando com o Blog? Já faz alguns anos que estava querendo voltar com o blog, mas devido a correria do dia a dia estava procrastinando esta decisão. Depois fiquei pensando sobre o que escrever já que hoje em dia, diferente de como era alguns anos atrás, temos acesso a muitos conteúdos. Temos conteúdos para todos os gostos, desde conteúdos iniciantes na área de programação até os mais avançados.
+Sendo assim, decidi que vou escrever sobre as tecnologias e langs que estou trabalhando ou estudando.</description>
+    </item>
+    
   </channel>
 </rss>
