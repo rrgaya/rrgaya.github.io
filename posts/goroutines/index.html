@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-br"><head>
+    <title>Gaya Blog</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="" />
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/theme.min.css">
+
+    
+    
+    
+
+    
+</head>
+<body>
+        <div id="content" class="mx-auto"><header class="container mt-sm-5 mt-4 mb-4 mt-xs-1">
+    <div class="row">
+        <div class="col-sm-4 col-12 text-sm-right text-center pt-sm-4">
+            <a href="/" class="text-decoration-none">
+                <img id="home-image" class="rounded-circle"
+                    
+                        src="/images/avatar.png"
+                    
+                />
+            </a>
+        </div>
+        <div class="col-sm-8 col-12 text-sm-left text-center">
+            <h2 class="m-0 mb-2 mt-4">
+                <a href="/" class="text-decoration-none">
+                    
+                        Gaya
+                    
+                </a>
+            </h2>
+            <p class="text-muted mb-1">
+                
+                    Blog
+                
+            </p>
+            <ul id="nav-links" class="list-inline mb-2">
+                
+                
+                    <li class="list-inline-item">
+                        <a class="badge badge-white " href="https://rrgaya.github.io/" title="Posts">Posts</a>
+                    </li>
+                
+            </ul>
+            <ul id="nav-social" class="list-inline">
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="http://github.com/rrgaya" target="_blank">
+                            <i class="fab fa-github fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="#" target="_blank">
+                            <i class="fab fa-linkedin-in fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="#" target="_blank">
+                            <i class="fab fa-twitter fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+                    <li class="list-inline-item mr-3">
+                        <a href="rrgaya@gmail.com" target="_blank">
+                            <i class="fas fa-at fa-1x text-muted"></i>
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+    <hr />
+</header>
+<div class="container">
+    <div class="pl-sm-4 ml-sm-5">
+        <h1 id="guia-completo-para-criar-e-gerenciar-goroutines-em-go">Guia Completo para Criar e Gerenciar Goroutines em Go</h1>
+<h2 id="introdução">Introdução:</h2>
+<p>A concorrência é um recurso poderoso em Go, permitindo que os programas executem várias tarefas simultaneamente. Uma das principais abstrações para trabalhar com concorrência em Go é a goroutine, que é uma função executada de forma independente e concorrente. Neste artigo, vamos explorar em detalhes como criar e gerenciar goroutines em Go.</p>
+<h2 id="o-que-é-uma-goroutine">O que é uma Goroutine?</h2>
+<p>Uma goroutine é uma função que pode ser executada de forma concorrente com outras goroutines dentro de um programa Go. Elas são leves em termos de recursos, permitindo que você crie milhares ou até mesmo milhões delas. As goroutines são a base da concorrência em Go e oferecem uma maneira eficiente de lidar com tarefas paralelas.</p>
+<h2 id="criando-uma-goroutine">Criando uma Goroutine:</h2>
+<p>Para criar uma goroutine, basta adicionar a palavra-chave go antes da chamada da função. Vamos começar com um exemplo simples de uma função que exibe uma mensagem:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;time&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">exibirMensagem</span>() {
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Olá, goroutine!&#34;</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#66d9ef">go</span> <span style="color:#a6e22e">exibirMensagem</span>()
+
+	<span style="color:#75715e">// Aguarda um breve intervalo para permitir que a goroutine execute
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Fim do programa&#34;</span>)
+}
+
+</code></pre></div><p>Neste exemplo, a função exibirMensagem() é executada como uma goroutine usando a palavra-chave go. A função principal (main()) continua sua execução imediatamente após iniciar a goroutine. Para garantir que a goroutine tenha tempo para executar, usamos a função Sleep() do pacote time para aguardar um segundo.</p>
+<h2 id="comunicação-entre-goroutines">Comunicação entre Goroutines:</h2>
+<p>A comunicação entre goroutines é um aspecto importante da concorrência em Go. Existem várias maneiras de realizar a comunicação entre goroutines, como canais (channels), wait groups, mutexes, entre outros. Vamos explorar um exemplo usando canais:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;time&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">enviarMensagem</span>(<span style="color:#a6e22e">c</span> <span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">string</span>, <span style="color:#a6e22e">mensagem</span> <span style="color:#66d9ef">string</span>) {
+	<span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Sleep</span>(<span style="color:#ae81ff">2</span> <span style="color:#f92672">*</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Second</span>)
+	<span style="color:#a6e22e">c</span> <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">mensagem</span>
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#a6e22e">c</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">chan</span> <span style="color:#66d9ef">string</span>)
+
+	<span style="color:#66d9ef">go</span> <span style="color:#a6e22e">enviarMensagem</span>(<span style="color:#a6e22e">c</span>, <span style="color:#e6db74">&#34;Olá, goroutine!&#34;</span>)
+
+	<span style="color:#75715e">// Aguarda a mensagem ser recebida pelo canal
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">mensagem</span> <span style="color:#f92672">:=</span> <span style="color:#f92672">&lt;-</span><span style="color:#a6e22e">c</span>
+
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">mensagem</span>)
+}
+</code></pre></div><p>Neste exemplo, criamos um canal c usando a função make() e passamos esse canal para a função enviarMensagem(). Dentro da goroutine, aguardamos dois segundos usando Sleep() e, em seguida, enviamos a mensagem através do canal. No trecho mensagem := &lt;-c, o programa principal aguarda até que uma mensagem seja recebida do canal e, em seguida, a exibe na tela.</p>
+<h2 id="gerenciando-múltiplas-goroutines">Gerenciando Múltiplas Goroutines:</h2>
+<p>À medida que o número de goroutines aumenta, é importante ter um mecanismo para gerenciá-las. O pacote sync oferece recursos para trabalhar com grupos de goroutines. Vamos ver um exemplo usando sync.WaitGroup:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Go" data-lang="Go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+
+<span style="color:#f92672">import</span> (
+	<span style="color:#e6db74">&#34;fmt&#34;</span>
+	<span style="color:#e6db74">&#34;sync&#34;</span>
+)
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">processarItem</span>(<span style="color:#a6e22e">item</span> <span style="color:#66d9ef">int</span>, <span style="color:#a6e22e">wg</span> <span style="color:#f92672">*</span><span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">WaitGroup</span>) {
+	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Done</span>()
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Processando item %d\n&#34;</span>, <span style="color:#a6e22e">item</span>)
+}
+
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">wg</span> <span style="color:#a6e22e">sync</span>.<span style="color:#a6e22e">WaitGroup</span>
+
+	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">5</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span> {
+		<span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Add</span>(<span style="color:#ae81ff">1</span>)
+		<span style="color:#66d9ef">go</span> <span style="color:#a6e22e">processarItem</span>(<span style="color:#a6e22e">i</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">wg</span>)
+	}
+
+	<span style="color:#75715e">// Aguarda todas as goroutines finalizarem
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">wg</span>.<span style="color:#a6e22e">Wait</span>()
+
+	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;Processamento concluído&#34;</span>)
+}
+
+</code></pre></div><p>Neste exemplo, usamos sync.WaitGroup para sincronizar a conclusão das goroutines. A função processarItem() é chamada em uma goroutine para processar cada item. Chamamos wg.Add(1) antes de iniciar cada goroutine para adicionar uma contagem ao WaitGroup. Dentro da função processarItem(), chamamos wg.Done() para indicar a conclusão de uma goroutine. Por fim, chamamos wg.Wait() para aguardar até que todas as goroutines sejam concluídas.</p>
+<h2 id="considerações-finais">Considerações Finais:</h2>
+<p>As goroutines são uma parte essencial da concorrência em Go. Com a criação e gerenciamento adequados de goroutines, você pode aproveitar ao máximo o poder da concorrência e paralelismo em seus programas. Neste artigo, exploramos a criação de goroutines, a comunicação entre elas e o gerenciamento de múltiplas goroutines usando canais e sync.WaitGroup.</p>
+<p>Go oferece uma abordagem concisa e eficiente para lidar com concorrência, tornando mais fácil escrever programas paralelos e concorrentes. Ao utilizar as goroutines de forma adequada, você pode criar programas mais eficientes, responsivos e escaláveis.</p>
+<p>Espero que este artigo tenha fornecido uma visão detalhada de como criar e gerenciar goroutines em Go. Com essas informações, você está pronto para começar a utilizar a concorrência em seus próprios projetos. Experimente e aproveite ao máximo a concorrência em Go!</p>
+
+    </div>
+
+    
+
+            </div>
+        </div><footer class="text-center pb-1">
+    <small class="text-muted">
+        
+            &copy; Copyright Year, Your Name
+        
+        <br>
+        Powered by <a href="https://gohugo.io/" target="_blank">Hugo</a>
+        and <a href="https://github.com/austingebauer/devise" target="_blank">Devise</a>
+    </small>
+</footer>
+</body>
+</html>

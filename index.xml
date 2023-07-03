@@ -6,7 +6,17 @@
     <description>Recent content on Gaya Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>pt-br</language>
-    <lastBuildDate>Sat, 04 Feb 2023 13:14:08 -0300</lastBuildDate><atom:link href="https://rrgaya.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 13 Jun 2023 19:18:41 -0300</lastBuildDate><atom:link href="https://rrgaya.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Goroutines</title>
+      <link>https://rrgaya.github.io/posts/goroutines/</link>
+      <pubDate>Tue, 13 Jun 2023 19:18:41 -0300</pubDate>
+      
+      <guid>https://rrgaya.github.io/posts/goroutines/</guid>
+      <description>Guia Completo para Criar e Gerenciar Goroutines em Go Introdução: A concorrência é um recurso poderoso em Go, permitindo que os programas executem várias tarefas simultaneamente. Uma das principais abstrações para trabalhar com concorrência em Go é a goroutine, que é uma função executada de forma independente e concorrente. Neste artigo, vamos explorar em detalhes como criar e gerenciar goroutines em Go.
+O que é uma Goroutine? Uma goroutine é uma função que pode ser executada de forma concorrente com outras goroutines dentro de um programa Go.</description>
+    </item>
+    
     <item>
       <title>Init</title>
       <link>https://rrgaya.github.io/posts/init/</link>
